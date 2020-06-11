@@ -12,3 +12,10 @@
 La aplicación será de uso exclusivo para el establecimiento. Al estar alojado en la web cualquier persona tendrá acceso si ingresa a la dirección, mas no el poder manipular el sistema si no se cuenta con las credenciales correctas.
 
 El sistema al implementarse de forma online estará disponible a cualquier hora y en cualquier lugar, siempre y cuando exista una computadora o celular con acceso a internet o datos móviles. Esto da la accesibilidad al dueño o trabajador de operar fuera del establecimiento si lo requiere.
+
+## Problemas frecuentes
+
+### SQL
+
+ - `SQLSTATE[42000]: Syntax error or access violation: 1067 Invalid default value for [timestamp]`
+Para las columnas de tipo `timestamp` existe una restricción que viene por default en Laravel 5.1+. La solución es ubicar el archivo **`config\database.php`** y en el objeto **mysql** modificamos `'strict' => false` por ***`true`*** .

@@ -15,7 +15,18 @@ class CreateLicensesTable extends Migration
     {
         Schema::create('licenses', function (Blueprint $table) {
             $table->id();
+            $table->timestamp('activation_date');
+            $table->timestamp('due_date');
+            $table->text('observations')->nullable();
+            $table->string('serial_number')->unique();
             $table->timestamps();
+
+            // Foreign keys
+            $table->unsignedBigInteger('client_id');
+            $table->unsignedBigInteger('system_id');
+
+            $table->foreign('client_id')->references('id')->on('clients');
+            $table->foreign('system_id')->references('id')->on('systems');
         });
     }
 
