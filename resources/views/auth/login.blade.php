@@ -9,6 +9,7 @@
     <div class="login__header">
         <a href="{{ route('login') }}">
             <i class="fas fa-sign-in-alt"></i>
+
             {{ __('Ingresar') }}
         </a>
     </div>
@@ -19,7 +20,8 @@
         <div class="login__form__email">
             <label for="email" id="emailLabel">{{ __('Correo') }}</label>
 
-            <input id="email" type="email" @error('email') class=" is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+            <input id="email" type="email" @error('email') class="is-invalid @enderror" name="email"
+                value="{{ old('email') }}" required autocomplete="email" autofocus>
 
             @error('email')
             <span class="invalid-feedback" role="alert">
@@ -31,7 +33,8 @@
         <div class="login__form__password">
             <label for="password" id="passwordLabel">{{ __('Contraseña') }}</label>
 
-            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+                name="password" required autocomplete="current-password">
 
             @error('password')
             <span class="invalid-feedback" role="alert">
@@ -41,7 +44,8 @@
         </div>
 
         <div class="login__form__remember-check">
-            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+            <input class="form-check-input" type="checkbox" name="remember" id="remember"
+                {{ old('remember') ? 'checked' : '' }}>
 
             <span class="checkmark"></span>
 
@@ -62,7 +66,5 @@
             @endif
         </div>
     </form>
-
-    <script src="{{ asset('js/login.js') }}"></script>
 </div>
 @endsection

@@ -10,7 +10,8 @@
 
 .login__header a {
     display: block;
-    width: 10%;
+    min-width: 10%;
+    width: fit-content;
     height: 100%;
     padding-bottom: 1rem;
     color: var(--lightGray);
@@ -29,7 +30,8 @@
 .login__form__email,
 .login__form__password,
 .login__form__remember-check,
-.login__form__forgot-pw {
+.login__form__forgot-pw,
+.login__form__name {
     flex-direction: column;
     width: 50%;
     min-width: 300px;
@@ -38,13 +40,15 @@
 }
 
 .login__form__email label,
-.login__form__password label {
+.login__form__password label,
+.login__form__name label {
     font-size: 1.2rem;
     color: var(--grayishLight);
 }
 
 .login__form__email input,
-.login__form__password input {
+.login__form__password input,
+.login__form__name input {
     width: 100%;
     padding: 1rem;
     font-size: 1rem;
@@ -56,12 +60,14 @@
 }
 
 .login__form__email:hover>label,
-.login__form__password:hover>label {
+.login__form__password:hover>label,
+.login__form__name:hover>label {
     color: var(--lightGray);
 }
 
 .login__form__email input:focus,
-.login__form__password input:focus {
+.login__form__password input:focus,
+.login__form__name input:focus {
     border-bottom: 1px solid var(--lightGray);
 }
 
@@ -123,4 +129,11 @@
 
 .is-invalid {
     border-bottom: 3px solid var(--red) !important;
+}
+
+/* Autofill input fields styles */
+input:-webkit-autofill {
+    -webkit-text-fill-color: var(--lightGray);
+    box-shadow: 0 0 0px 1000px var(--darkBlue) inset;
+    -webkit-box-shadow: 0 0 0px 1000px var(--darkBlue) inset;
 }
