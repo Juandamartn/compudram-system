@@ -89,7 +89,11 @@
                 </form>
 
                 <div class="menu-container__dropdown">
-                    <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}" alt="Profile picture">
+                    <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}&background=344859&color=E0E4E0" alt="Profile picture">
+
+                    <div class="name hidden">
+                        <p>{{ Auth::user()->name }}</p>
+                    </div>
 
                     <i class="fas fa-chevron-down"></i>
                 </div>

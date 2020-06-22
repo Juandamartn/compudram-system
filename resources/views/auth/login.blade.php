@@ -20,7 +20,7 @@
         <div class="login__form__email">
             <label for="email" id="emailLabel">{{ __('Correo') }}</label>
 
-            <input id="email" type="email" @error('email') class="is-invalid @enderror" name="email"
+            <input id="email" type="email" @error('email') class="is-invalid" @enderror name="email"
                 value="{{ old('email') }}" required autocomplete="email" autofocus>
 
             @error('email')
@@ -33,7 +33,7 @@
         <div class="login__form__password">
             <label for="password" id="passwordLabel">{{ __('Contraseña') }}</label>
 
-            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+            <input id="password" type="password" @error('password') class="is-invalid" @enderror
                 name="password" required autocomplete="current-password">
 
             @error('password')
@@ -60,8 +60,8 @@
             </button>
 
             @if (Route::has('password.request'))
-            <a class="btn btn-link" href="{{ route('password.request') }}">
-                {{ __('Forgot Your Password?') }}
+            <a href="{{ route('password.request') }}">
+                {{ __('Olvidaste tu contraseña?') }}
             </a>
             @endif
         </div>

@@ -20,7 +20,8 @@
         <div class="login__form__name">
             <label for="name">{{ __('Name') }}</label>
 
-            <input id="name" type="text" @error('name') class="is-invalid @enderror" name="name"
+            <input id="name" type="text" @error('name') class="is-invalid"
+            @enderror name="name"
                 value="{{ old('name') }}" required autocomplete="name" autofocus>
 
             @error('name')
@@ -33,7 +34,7 @@
         <div class="login__form__email">
             <label for="email">{{ __('E-Mail Address') }}</label>
 
-            <input id="email" type="email" @error('email') class="is-invalid @enderror" name="email"
+            <input id="email" type="email" @error('email') class="is-invalid" @enderror name="email"
                 value="{{ old('email') }}" required autocomplete="email">
 
             @error('email')
@@ -46,7 +47,7 @@
         <div class="login__form__password">
             <label for="password">{{ __('Password') }}</label>
 
-            <input id="password" type="password" @error('password') class="is-invalid @enderror" name="password"
+            <input id="password" type="password" @error('password') class="is-invalid" @enderror name="password"
                 required autocomplete="new-password">
 
             @error('password')

@@ -137,6 +137,19 @@ nav {
     width: auto;
 }
 
+.menu-container__dropdown .name {
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+    color: var(--lightGray);
+}
+
+.menu-container__dropdown:hover .name {
+    display: block !important;
+    animation-name: slideToLeft;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+}
+
 .menu-container__dropdown img {
     width: 30px;
     margin-right: 0.5rem;
