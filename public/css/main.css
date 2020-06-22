@@ -1,14 +1,15 @@
 :root {
     font-size: 16px;
 
-    --darkBlue: #353F4F;
-    --lightBlue: #4E93E3;
-    --lightBlueHover: #3888e2;
+    --darkBlue: #344859;
+    --lightBlue: #0091E6;
+    --lightBlueHover: #219ce4;
     --white: #FCFDFC;
-    --primaryBlue: #4466A1;
-    --grayishPurple: #8D89A5;
+    --grayishLight: #758290;
+    --grayishPurple: #4F5B69;
     --lightGray: #E0E4E0;
-    --darkGray: #B0BBAE;
+    --green: #00C764;
+    --red: #c70000;
 }
 
 * {
@@ -25,11 +26,22 @@ button:focus {
     outline: none;
 }
 
+/* Anchor styles */
+a {
+    text-decoration: none;
+}
+
 /* Flexbox */
 nav,
 .nav__logo-container,
 .menu-container,
-.menu-container__dropdown {
+.menu-container__dropdown,
+.login,
+.login__form,
+.login__form__email,
+.login__form__password,
+.login__form__remember-check,
+.login__form__forgot-pw {
     display: flex;
 }
 
@@ -39,7 +51,9 @@ nav,
 }
 
 /* Pointer cursor */
-.menu-container__dropdown {
+.menu-container__dropdown,
+.login__form__remember-check label,
+.btn {
     cursor: pointer;
 }
 
@@ -50,7 +64,13 @@ nav,
 }
 
 /* Transition */
-.menu-item {
+.menu-item,
+.login__form__email label,
+.login__form__password label,
+.login__form__remember-check,
+.login__form__forgot-pw a,
+.btn,
+.checkmark {
     transition: all 0.3s ease-out;
     -webkit-transition: all 0.3s ease-out;
     -moz-transition: all 0.3s ease-out;
@@ -71,7 +91,7 @@ nav {
     align-items: center;
     padding: 1rem;
     width: 20%;
-    background-color: #65a1e6;
+    background-color: #0095E6;
 }
 
 .menu-container {
@@ -139,7 +159,6 @@ nav {
     padding: 1rem;
     background-color: var(--lightBlue);
     color: var(--lightGray);
-    text-decoration: none;
     animation-name: growDown;
     animation-duration: 0.3s;
     animation-fill-mode: forwards;
@@ -152,7 +171,64 @@ nav {
 
 /* Main content */
 main {
-    padding: 6rem 7% 2rem 7%;
+    padding: 5rem 7% 2rem 7%;
     min-height: 100vh;
     background-color: var(--darkBlue);
+}
+
+/* Button styles */
+.btn {
+    padding: 0.8rem 1.8rem 1rem 1.8rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 500px;
+    -webkit-border-radius: 500px;
+    -moz-border-radius: 500px;
+    -ms-border-radius: 500px;
+    -o-border-radius: 500px;
+}
+
+.btn:hover {
+    opacity: 0.7;
+}
+
+.btn-primary {
+    background-color: var(--green);
+    color: var(--lightGray);
+}
+
+.btn-seconday {
+    background-color: var(--lightBlue);
+    color: var(--lightGray);
+}
+
+/* Custom Check Button */
+/* Hide the browser's default checkbox */
+input[type=checkbox] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border: 3px solid var(--grayishLight);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked~.checkmark {
+    background-color: #2196F3;
 }
