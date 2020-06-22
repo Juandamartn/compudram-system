@@ -1,0 +1,17 @@
+@keyframes growDown {
+    0% {
+        color: transparent;
+        height: 0px;
+        padding: 0 1rem;
+    }
+
+    50% {
+        color: transparent;
+    }
+
+    100% {
+        color: var(--lightGray);
+        padding: auto;
+        height: auto;
+    }
+}
