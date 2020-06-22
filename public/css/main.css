@@ -41,7 +41,8 @@ nav,
 .login__form__email,
 .login__form__password,
 .login__form__remember-check,
-.login__form__forgot-pw {
+.login__form__forgot-pw,
+.menu-item {
     display: flex;
 }
 
@@ -70,7 +71,8 @@ nav,
 .login__form__remember-check,
 .login__form__forgot-pw a,
 .btn,
-.checkmark {
+.checkmark,
+input {
     transition: all 0.3s ease-out;
     -webkit-transition: all 0.3s ease-out;
     -moz-transition: all 0.3s ease-out;
@@ -152,6 +154,7 @@ nav {
 }
 
 .menu-item {
+    align-items: center;
     width: 100px;
     position: absolute;
     right: 7%;
@@ -163,6 +166,10 @@ nav {
     animation-duration: 0.3s;
     animation-fill-mode: forwards;
     z-index: -1;
+}
+
+.menu-item i {
+    margin-right: 0.3rem;
 }
 
 .menu-item:hover {

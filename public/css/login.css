@@ -60,6 +60,11 @@
     color: var(--lightGray);
 }
 
+.login__form__email input:focus,
+.login__form__password input:focus {
+    border-bottom: 1px solid var(--lightGray);
+}
+
 .login__form__remember-check {
     flex-direction: row;
     align-items: center;
@@ -114,4 +119,8 @@
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
+}
+
+.is-invalid {
+    border-bottom: 3px solid var(--red) !important;
 }
