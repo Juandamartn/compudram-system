@@ -43,7 +43,8 @@ nav,
 .login__form__forgot-pw,
 .menu-item,
 .home,
-.home__header {
+.home__header,
+.content {
     display: flex;
 }
 
@@ -74,7 +75,13 @@ nav,
 .btn,
 .checkmark,
 input,
-.home__header a {
+.home__header a,
+.card__header__title .name,
+.card__image,
+.form__field,
+.form__field label,
+.form__button,
+.form__button label {
     transition: all 0.3s ease-out;
     -webkit-transition: all 0.3s ease-out;
     -moz-transition: all 0.3s ease-out;
@@ -253,4 +260,34 @@ input[type=checkbox] {
 /* When the checkbox is checked, add a blue background */
 .container input:checked~.checkmark {
     background-color: #2196F3;
+}
+
+/* Message logs */
+.log {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    font-weight: 700;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+}
+
+.info-log {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    color: #9F6000;
+    font-weight: 700;
+    background-color: #FEEFB3;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
 }

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\System;
-use Illuminate\Http\Request;
+use App\Http\Requests\SystemRequest;
 
 class SystemController extends Controller
 {
@@ -14,7 +14,9 @@ class SystemController extends Controller
      */
     public function index()
     {
-        return view('systems');
+        $systems = System::latest()->get();
+
+        return view('systems', compact('systems'));
     }
 
     /**
@@ -33,7 +35,7 @@ class SystemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SystemRequest $request)
     {
         //
     }
@@ -67,7 +69,7 @@ class SystemController extends Controller
      * @param  \App\System  $system
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, System $system)
+    public function update(SystemRequest $request, System $system)
     {
         //
     }
