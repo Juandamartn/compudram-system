@@ -17,4 +17,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('systems', 'SystemController@index')->name('systems');
+// Route::get('systems', 'SystemController@index')->name('systems');
+
+Route::resource('systems', 'SystemController')
+    ->middleware('auth');
