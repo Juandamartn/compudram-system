@@ -1,5 +1,6 @@
 .login {
     flex-direction: column;
+    align-items: center;
 }
 
 .login__header {
@@ -10,10 +11,10 @@
 
 .login__header a {
     display: block;
-    min-width: 10%;
+    width: fit-content;
     height: 100%;
     padding-bottom: 1rem;
-    margin-right: rem;
+    margin-right: 1rem;
     color: var(--lightGray);
     font-weight: 300;
     border-bottom: 3px solid var(--lightBlue);
@@ -26,6 +27,7 @@
 .login__form {
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 .login__form__email,
@@ -117,10 +119,11 @@
 
 /* Error messages */
 .invalid-feedback {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     padding: 1rem;
-    background-color: var(--red);
-    color: var(--lightGray);
+    font-weight: 700;
+    color: #D8000C;
+    background-color: #FFD2D2;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -129,7 +132,7 @@
 }
 
 .is-invalid {
-    border-bottom: 3px solid var(--red) !important;
+    border-bottom: 3px solid #D8000C !important;
 }
 
 /* Autofill input fields styles */
@@ -137,4 +140,17 @@ input:-webkit-autofill {
     -webkit-text-fill-color: var(--lightGray);
     box-shadow: 0 0 0px 1000px var(--darkBlue) inset;
     -webkit-box-shadow: 0 0 0px 1000px var(--darkBlue) inset;
+}
+
+.info-log {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    color: #9F6000;
+    font-weight: 700;
+    background-color: #FEEFB3;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
 }

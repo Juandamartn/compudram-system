@@ -13,7 +13,7 @@
             {{ __('Inicio') }}
         </a>
 
-        <a href="{{ route('systems') }}" @if ($view == 'systems') class="selected" @endif >
+        <a href="{{ route('systems.index') }}" @if ($view == 'systems') class="selected" @endif >
             <i class="fas fa-box"></i>
 
             {{ __('Sistemas') }}
