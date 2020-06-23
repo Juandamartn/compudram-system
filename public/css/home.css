@@ -1,0 +1,29 @@
+.home {
+    flex-direction: column;
+}
+
+.home__header {
+    width: 100%;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--grayishPurple);
+}
+
+.home__header a {
+    display: block;
+    width: fit-content;
+    height: 100%;
+    margin-right: 2rem;
+    padding-bottom: 1rem;
+    color: var(--grayishLight);
+    font-weight: 300;
+}
+
+.home__header a:hover {
+    color: var(--lightGray);
+    border-bottom: 3px solid var(--lightBlue);
+}
+
+.selected {
+    color: var(--lightGray) !important;
+    border-bottom: 3px solid var(--lightBlue);
+}

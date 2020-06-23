@@ -1,7 +1,7 @@
 :root {
     font-size: 16px;
 
-    --darkBlue: #344859;
+    --darkBlue: #2D3D4F;
     --lightBlue: #0091E6;
     --lightBlueHover: #219ce4;
     --white: #FCFDFC;
@@ -42,7 +42,9 @@ nav,
 .login__form__password,
 .login__form__remember-check,
 .login__form__forgot-pw,
-.menu-item {
+.menu-item,
+.home,
+.home__header {
     display: flex;
 }
 
@@ -72,7 +74,8 @@ nav,
 .login__form__forgot-pw a,
 .btn,
 .checkmark,
-input {
+input,
+.home__header a {
     transition: all 0.3s ease-out;
     -webkit-transition: all 0.3s ease-out;
     -moz-transition: all 0.3s ease-out;
