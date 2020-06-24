@@ -221,6 +221,11 @@ h1 {
     color: var(--grayishLight);
 }
 
+.form__field .required {
+    color: var(--lightGray);
+    font-size: 1.2rem;
+}
+
 .form__button p {
     align-self: flex-start;
     margin-bottom: 1rem;
