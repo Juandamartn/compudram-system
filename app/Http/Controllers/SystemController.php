@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\System;
 use App\Http\Requests\SystemRequest;
+use Illuminate\Support\Facades\Storage;
 
 class SystemController extends Controller
 {
@@ -59,7 +60,7 @@ class SystemController extends Controller
      */
     public function edit(System $system)
     {
-        //
+        return view('systems.edit', compact('system'));
     }
 
     /**
@@ -71,7 +72,15 @@ class SystemController extends Controller
      */
     public function update(SystemRequest $request, System $system)
     {
-        //
+        $system->update($request->all());
+
+        if ($request->file('image')) {
+            Storage::disk('public')->delete($system->image);
+            $system->image = $request->file('image')->store('systems', 'public');
+            $system->save();
+        }
+
+        return back()->with('status', '¡Sistema actualizado con éxito!');
     }
 
     /**

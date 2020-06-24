@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="card__header__controls">
-                    <a class=" btn btn-edit hidden">
+                    <a href="{{ route('systems.edit', $system) }}" class=" btn btn-edit hidden">
                         <i class="fas fa-edit"></i>
                     </a>
 
@@ -30,7 +30,7 @@
 
             <div class="card__image">
                 @if ($system->image)
-                <img src="{{ $system->image }}" alt="{{ $system->name }} image">
+                <img src="{{ $system->get_image }}" alt="{{ $system->name }} image">
                 @else
                 <img src="https://ui-avatars.com/api/?name={{ $system->name }}&background=758290&color=4F5B69&size=200" alt="">
                 @endif

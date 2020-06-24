@@ -18,4 +18,5 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::resource('systems', 'SystemController')
-    ->middleware('auth');
+    ->middleware('auth')
+    ->except('show');
