@@ -64,6 +64,8 @@
         </div>
     @endforeach
 
+    {{ $systems->links('vendor.pagination.default') }}
+
     <div class="modal hidden">
         <div class="modal__pane">
             <p>¿Estas seguro que deseas eliminar?</p>

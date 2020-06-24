@@ -50,6 +50,7 @@
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
+    padding-bottom: 2rem;
 }
 
 /* Button styles */
@@ -326,4 +327,38 @@ h1 {
 .modal__pane__buttons {
     display: flex;
     justify-content: space-around;
+}
+
+/* Pagination */
+.nav__pagination {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--darkBlue);
+}
+
+.nav__pagination ul {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.nav__pagination ul li {
+    list-style: none;
+    margin-right: 1rem;
+    color: var(--grayishPurple);
+    font-size: 1.1rem;
+}
+
+.nav__pagination ul li span {
+    cursor: not-allowed;
+}
+
+.nav__pagination ul li a {
+    color: var(--lightGray);
+}
+
+.nav__pagination ul li a i,
+.nav__pagination ul li span i {
+    font-size: 0.8rem;
 }

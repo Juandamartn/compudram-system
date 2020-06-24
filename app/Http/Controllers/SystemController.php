@@ -16,7 +16,7 @@ class SystemController extends Controller
      */
     public function index()
     {
-        $systems = System::latest()->get();
+        $systems = System::paginate(10);
 
         return view('systems', compact('systems'));
     }
