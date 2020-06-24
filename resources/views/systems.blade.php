@@ -35,7 +35,7 @@
                 <div class="card__header__title">
                     <p class="name">{{ $system->name }}</p>
 
-                    <p class="date">Creado en {{ date('d/m/Y', strtotime($system->created_at)) }}</p>
+                    <p class="date">Creado en {{ $system->get_creation_date }}</p>
                 </div>
 
                 <div class="card__header__controls">

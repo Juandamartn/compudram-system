@@ -30,7 +30,13 @@ class System extends Model
         }
     }
 
-    public function setNameAttribute($value) {
+    public function getGetCreationDateAttribute()
+    {
+        return date('d/m/Y', strtotime($this->created_at));
+    }
+
+    public function setNameAttribute($value)
+    {
         $this->attributes['name'] = strtolower($value);
     }
 }
