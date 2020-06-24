@@ -13,4 +13,14 @@ class Client extends Model
     {
         return $this->hasMany(License::class, 'client_id');
     }
+
+    public function getGetCreationDateAttribute()
+    {
+        return date('d/m/Y', strtotime($this->created_at));
+    }
+
+    public function getGetUpdatedDateAttribute()
+    {
+        return date('d/m/Y', strtotime($this->updated_at));
+    }
 }

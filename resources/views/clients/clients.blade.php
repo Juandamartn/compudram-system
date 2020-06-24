@@ -55,11 +55,7 @@
             </div>
 
             <div class="card__image">
-                @if ($client->image)
-                <img src="{{ $client->get_image }}" alt="{{ $client->name }} image">
-                @else
                 <img src="https://ui-avatars.com/api/?name={{ $client->name }}&background=758290&color=4F5B69&size=200" alt="">
-                @endif
             </div>
         </div>
     @endforeach

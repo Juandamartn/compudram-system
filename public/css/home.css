@@ -189,6 +189,11 @@
     opacity: 0.7;
 }
 
+.back-show {
+    top: -2.5rem;
+    left: 2%;
+}
+
 h1 {
     color: var(--lightGray);
 }
@@ -361,4 +366,67 @@ h1 {
 .nav__pagination ul li a i,
 .nav__pagination ul li span i {
     font-size: 0.8rem;
+}
+
+/* Cards for "show" views */
+.card__show {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    position: relative;
+    width: 100%;
+}
+
+.card__controls {
+    display: flex;
+    position: absolute;
+    top: -2.5rem;
+    right: 0;
+}
+
+.profile__name {
+    color: var(--lightGray);
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+}
+
+.profile__date {
+    color: var(--grayishLight);
+    margin-bottom: 1rem;
+}
+
+.card__profile img {
+    width: 100%;
+}
+
+.card__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card__info__field {
+    padding: 1rem 0;
+    width: 100%;
+    border-bottom: 1px solid var(--grayishPurple);
+}
+
+.info__field__title {
+    margin-bottom: 1rem;
+    color: var(--grayishLight);
+    font-size: 0.8rem;
+}
+
+.info__field__content {
+    color: var(--lightGray);
+    text-transform: capitalize;
+}
+
+.email {
+    text-transform: lowercase;
+}
+
+.rfc {
+    text-transform: uppercase;
 }
