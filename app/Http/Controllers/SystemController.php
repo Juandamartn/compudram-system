@@ -72,7 +72,9 @@ class SystemController extends Controller
      */
     public function update(SystemRequest $request, System $system)
     {
-        $system->update($request->all());
+        $system->update([
+            'name' => $request->name
+        ]);
 
         if ($request->file('image')) {
             Storage::disk('public')->delete($system->image);

@@ -81,7 +81,8 @@ input,
 .form__field,
 .form__field label,
 .form__button,
-.form__button label {
+.form__button label,
+a {
     transition: all 0.3s ease-out;
     -webkit-transition: all 0.3s ease-out;
     -moz-transition: all 0.3s ease-out;

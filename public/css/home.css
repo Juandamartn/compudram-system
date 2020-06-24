@@ -175,8 +175,20 @@
 }
 
 /* Form styles */
+.back {
+    position: absolute;
+    top: 0;
+    left: 10%;
+    color: var(--lightGray);
+    font-size: 2rem;
+}
+
+.back:hover {
+    opacity: 0.7;
+}
+
 h1 {
-    color: var(--grayishLight);
+    color: var(--lightGray);
 }
 
 .form {

@@ -6,3 +6,16 @@ if (dropdown) {
         dropdownMenu.classList.toggle('hidden');
     });
 }
+
+function previewImage(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        var imgTag = document.querySelector('.form__button img');
+
+        reader.onload = function (e) {
+            imgTag.setAttribute('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}

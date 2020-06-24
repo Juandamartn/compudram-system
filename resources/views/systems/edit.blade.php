@@ -4,6 +4,10 @@
 @php ($view = 'systems')
 
 <div class="content justify-content-center flex-direction-column no-wrap">
+    <a href="{{ route('systems.index') }}" class="back">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
     <h1>Editar sistema</h1>
 
     @if (session('status'))
@@ -23,7 +27,7 @@
             <label for="image">
                 <i class="fas fa-edit"></i>
 
-                <input type="file" name="image" id="image">
+                <input type="file" name="image" id="image" onchange="previewImage(this)">
             </label>
 
             @if ($system->image)
