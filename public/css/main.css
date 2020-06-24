@@ -81,6 +81,7 @@ input,
 .form__field,
 .form__field label,
 .form__button,
+.form__button p,
 .form__button label,
 a {
     transition: all 0.3s ease-out;
@@ -95,7 +96,7 @@ nav {
     width: 100vw;
     position: fixed;
     background-color: var(--lightBlue);
-    z-index: 0;
+    z-index: 1;
 }
 
 .nav__logo-container {
@@ -156,7 +157,7 @@ nav {
 .menu-container__dropdown:hover .name {
     display: block !important;
     animation-name: slideToLeft;
-    animation-duration: 1.5s;
+    animation-duration: 0.5s;
     animation-fill-mode: forwards;
 }
 
@@ -264,6 +265,12 @@ input[type=checkbox] {
 }
 
 /* Message logs */
+.logs {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 .log {
     width: fit-content;
     margin-bottom: 1rem;

@@ -4,20 +4,22 @@
 @php ($view = 'systems')
 
 <div class="content">
-    @if (session('status'))
-        <div class="success log" role="alert">
-            {{ session('status') }}
-        </div>
-            
-    @elseif (session('error'))
-        <div class="error log" role="alert">
-            {!! session('error') !!}
-        </div>
-    @endif
-
-    <div class="btn btn-new">
-        <i class="fas fa-plus"></i>
+    <div class="logs">
+        @if (session('status'))
+            <div class="success log" role="alert">
+                {{ session('status') }}
+            </div>
+                
+        @elseif (session('error'))
+            <div class="error log" role="alert">
+                {!! session('error') !!}
+            </div>
+        @endif
     </div>
+
+    <a href="{{ route('systems.create') }}" class="btn btn-new">
+        <i class="fas fa-plus"></i>
+    </a>
 
     @foreach ($systems as $system)
         <div class="card">

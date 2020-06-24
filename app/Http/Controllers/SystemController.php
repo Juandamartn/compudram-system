@@ -28,7 +28,7 @@ class SystemController extends Controller
      */
     public function create()
     {
-        //
+        return view('systems.create');
     }
 
     /**
@@ -39,18 +39,14 @@ class SystemController extends Controller
      */
     public function store(SystemRequest $request)
     {
-        //
-    }
+        $system = System::create($request->all());
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\System  $system
-     * @return \Illuminate\Http\Response
-     */
-    public function show(System $system)
-    {
-        //
+        if ($request->file('image')) {
+            $system->image = $request->file('image')->store('systems', 'public');
+            $system->save();
+        }
+
+        return back()->with('status', '¡Sistema creado con éxito!');
     }
 
     /**

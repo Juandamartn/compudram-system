@@ -29,4 +29,8 @@ class System extends Model
             return url("storage/$this->image");
         }
     }
+
+    public function setNameAttribute($value) {
+        $this->attributes['name'] = strtolower($value);
+    }
 }
