@@ -84,7 +84,7 @@
             <div class="menu-container">
                 <form action="" class="menu-container__search">
                     <i class="fas fa-search"></i>
-
+                    {{-- TODO: Search content by modules --}}
                     <input type="search" name="search-content" id="search-content" placeholder="Buscar...">
                 </form>
 
