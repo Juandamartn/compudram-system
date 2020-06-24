@@ -33,3 +33,7 @@ function confirmDelete(event, id) {
 function closeModal() {
     modal.classList.toggle('hidden');
 }
+
+function closeAlert(container) {
+    container.classList.toggle('hidden');
+}

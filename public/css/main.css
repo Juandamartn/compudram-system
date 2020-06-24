@@ -271,12 +271,14 @@ input[type=checkbox] {
 
 /* Message logs */
 .logs {
+    position: relative;
     display: flex;
     justify-content: center;
     width: 100%;
 }
 
 .log {
+    position: relative;
     width: fit-content;
     margin-bottom: 1rem;
     padding: 1rem;
@@ -286,6 +288,14 @@ input[type=checkbox] {
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
+}
+
+.close {
+    position: absolute;
+    top: -0.5rem;
+    right: 0;
+    padding: 0.5rem;
+    cursor: pointer;
 }
 
 .success {

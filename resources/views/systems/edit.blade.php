@@ -12,6 +12,10 @@
 
     @if (session('status'))
         <div class="success log" role="alert">
+            <div class="close" onclick="closeAlert(this.parentNode)">
+                <i class="fas fa-times"></i>
+            </div>
+
             {{ session('status') }}
         </div>
     @endif
