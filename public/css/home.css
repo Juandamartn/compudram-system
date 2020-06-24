@@ -390,9 +390,10 @@ h1 {
 }
 
 .profile__name {
+    margin-bottom: 0.2rem;
     color: var(--lightGray);
     font-size: 1.5rem;
-    margin-bottom: 0.2rem;
+    text-transform: capitalize;
 }
 
 .profile__date {
@@ -400,11 +401,22 @@ h1 {
     margin-bottom: 1rem;
 }
 
+.card__profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    min-width: 200px;
+}
+
 .card__profile img {
-    width: 100%;
+    width: 50%;
+    min-width: 200px;
 }
 
 .card__info {
+    width: 40%;
+    min-width: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
