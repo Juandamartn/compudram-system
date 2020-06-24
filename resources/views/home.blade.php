@@ -19,7 +19,7 @@
             {{ __('Sistemas') }}
         </a>
 
-        <a href="" @if ($view == 'clients') class="selected" @endif >
+        <a href="{{ route('clients.index') }}" @if ($view == 'clients') class="selected" @endif >
             <i class="fas fa-users"></i>
 
             {{ __('Clientes') }}

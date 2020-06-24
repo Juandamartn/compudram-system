@@ -56,7 +56,8 @@ nav,
 /* Pointer cursor */
 .menu-container__dropdown,
 .login__form__remember-check label,
-.btn {
+.btn,
+.cursor-pointer {
     cursor: pointer;
 }
 

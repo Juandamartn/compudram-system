@@ -14,7 +14,8 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = Client::latest()->get();
+        // $clients = Client::latest()->get();
+        $clients = Client::paginate(10);
 
         return view('clients.clients', compact('clients'));
     }
@@ -48,7 +49,9 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        //
+        $client = Client::find($client->id);
+
+        return view('clients.show', compact('client'));
     }
 
     /**

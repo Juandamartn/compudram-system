@@ -22,5 +22,4 @@ Route::resource('systems', 'SystemController')
     ->except('show');
 
 Route::resource('clients', 'ClientController')
-    ->middleware('auth')
-    ->except('show');
+    ->middleware('auth');
