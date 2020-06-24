@@ -35,11 +35,11 @@
                         <i class="fas fa-edit"></i>
                     </a>
 
-                    <form action="{{ route('systems.destroy', $system) }}" method="post">
+                    <form id="delete{{ $system->id }}" action="{{ route('systems.destroy', $system) }}" method="post">
                         @csrf
                         @method('DELETE')
 
-                        <button type="submit" class="btn btn-delete hidden" onclick="confirm('¿Estás seguro que deseas eliminar?')">
+                        <button type="submit" class="btn btn-delete hidden" onclick="confirmDelete(event, this.dataset.id)" data-id="{{ $system->id }}">
                             <i class="fas fa-trash-alt"></i>
                         </button>
                     </form>
@@ -55,5 +55,17 @@
             </div>
         </div>
     @endforeach
+
+    <div class="modal hidden">
+        <div class="modal__pane">
+            <p>¿Estas seguro que deseas eliminar?</p>
+    
+            <div class="modal__pane__buttons">
+                <input type="submit" value="Sí" form="" class="btn btn-primary">
+        
+                <button class="btn btn-danger" onclick="closeModal()">No</button>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection

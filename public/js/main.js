@@ -1,5 +1,6 @@
 let dropdown = document.querySelector('.menu-container__dropdown'),
-    dropdownMenu = document.querySelector('.menu-item');
+    dropdownMenu = document.querySelector('.menu-item'),
+    modal = document.querySelector('.modal');
 
 if (dropdown) {
     dropdown.addEventListener('click', function () {
@@ -18,4 +19,17 @@ function previewImage(input) {
 
         reader.readAsDataURL(input.files[0]);
     }
+}
+
+function confirmDelete(event, id) {
+    let modalPane = document.querySelector('.modal__pane__buttons input');
+
+    modal.classList.toggle('hidden');
+    modalPane.setAttribute('form', `delete${id}`);
+
+    event.preventDefault();
+}
+
+function closeModal() {
+    modal.classList.toggle('hidden');
 }

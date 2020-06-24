@@ -234,6 +234,11 @@ main {
     color: var(--lightGray);
 }
 
+.btn-danger {
+    background-color: #c70000;
+    color: var(--lightGray);
+}
+
 /* Custom Check Button */
 /* Hide the browser's default checkbox */
 input[type=checkbox] {
