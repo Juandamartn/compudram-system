@@ -4,6 +4,17 @@
 @php ($view = 'systems')
 
 <div class="content">
+    @if (session('status'))
+        <div class="success log" role="alert">
+            {{ session('status') }}
+        </div>
+            
+    @elseif (session('error'))
+        <div class="error log" role="alert">
+            {!! session('error') !!}
+        </div>
+    @endif
+
     <div class="btn btn-new">
         <i class="fas fa-plus"></i>
     </div>
@@ -22,9 +33,14 @@
                         <i class="fas fa-edit"></i>
                     </a>
 
-                    <a class="btn btn-delete hidden">
-                        <i class="fas fa-trash-alt"></i>
-                    </a>
+                    <form action="{{ route('systems.destroy', $system) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+
+                        <button type="submit" class="btn btn-delete hidden" onclick="confirm('¿Estás seguro que deseas eliminar?')">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
 

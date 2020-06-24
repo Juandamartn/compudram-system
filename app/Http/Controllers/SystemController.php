@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\System;
 use App\Http\Requests\SystemRequest;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\QueryException;
 
 class SystemController extends Controller
 {
@@ -93,6 +94,16 @@ class SystemController extends Controller
      */
     public function destroy(System $system)
     {
-        //
+        try {
+            $system->delete();
+        } catch (QueryException $ex) {
+            return back()->with('error', '¡Ha ocurido un error al eliminar!<br>' . $ex->getMessage());
+        }
+
+        if ($system->image) {
+            Storage::disk('public')->delete($system->image);
+        }
+
+        return back()->with('status', '¡Sistema eliminado con éxito!');
     }
 }
