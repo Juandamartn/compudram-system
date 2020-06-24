@@ -20,3 +20,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::resource('systems', 'SystemController')
     ->middleware('auth')
     ->except('show');
+
+Route::resource('clients', 'ClientController')
+    ->middleware('auth')
+    ->except('show');
