@@ -8,7 +8,7 @@
         <i class="fas fa-arrow-left"></i>
     </a>
 
-    <h1>Editar servicio</h1>
+    <h1>Nuevo servicio</h1>
 
     @if (session('status'))
         <div class="success log" role="alert">
@@ -20,60 +20,59 @@
         </div>
     @endif
 
-    <form action="{{ route('services.update', $service) }}" method="post" class="form">
+    <form action="{{ route('services.store') }}" method="post" class="form">
         <div class="form__field">
             <label for="name">Nombre del servicio <span class="required">*</span></label>
 
-            <input type="text" name="name" required value="{{ old('name', $service->name) }}" class="normal">
+            <input type="text" name="name" required value="{{ old('name') }}" class="normal">
         </div>
 
         <div class="form__field">
             <label for="owner">Cliente <span class="required">*</span></label>
 
-            <input type="text" name="owner" required value="{{ old('owner', $service->owner) }}">
+            <input type="text" name="owner" required value="{{ old('owner') }}">
         </div>
 
         <div class="form__field">
             <label for="brand_pc">Marca de PC</label>
 
-            <input type="text" name="brand_pc" required value="{{ old('brand_pc', $service->brand_pc) }}">
+            <input type="text" name="brand_pc" required value="{{ old('brand_pc') }}">
         </div>
 
         <div class="form__field">
             <label for="accesories">Accesorios incluídos</label>
 
-            <input type="text" name="accesories" required value="{{ old('accesories', $service->accesories) }}">
+            <input type="text" name="accesories" required value="{{ old('accesories') }}">
         </div>
 
         <div class="form__field">
             <label for="description">Descripción <span class="required">*</span></label>
 
-            <input type="text" name="description" required value="{{ old('description', $service->description) }}">
+            <input type="text" name="description" required value="{{ old('description') }}">
         </div>
 
         <div class="form__field">
             <label for="receipt_date">Fecha de recibido <span class="required">*</span></label>
 
-            <input type="date" name="receipt_date" required value="{{ old('receipt_date', $service->get_receipt_date_other) }}">
+            <input type="date" name="receipt_date" required value="{{ old('receipt_date') }}">
         </div>
 
         <div class="form__field">
             <label for="delivery_date">Fecha de entrega</label>
 
-            <input type="date" name="delivery_date" required value="{{ old('delivery_date', $service->get_delivery_date_other) }}">
+            <input type="date" name="delivery_date" required value="{{ old('delivery_date') }}">
         </div>
 
         <div class="form__field">
             <label for="charge">Cobro</label>
 
-            <input type="text" name="charge" required value="{{ old('charge', $service->charge) }}">
+            <input type="text" name="charge" required value="{{ old('charge') }}">
         </div>
 
         <div class="form__submit">
             @csrf
-            @method('PUT')
 
-            <input type="submit" value="Modificar servicio" class="btn btn-primary">
+            <input type="submit" value="Crear servicio" class="btn btn-primary">
         </div>
     </form>
 </div>

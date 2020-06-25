@@ -272,7 +272,8 @@ h1 {
 
 .form__field input[name=name],
 .form__field input[name=address],
-.form__field input[name=brand_pc] {
+.form__field input[name=brand_pc],
+.form__field input[name=owner] {
     text-transform: capitalize;
 }
 
@@ -487,7 +488,7 @@ h1 {
 }
 
 .normal {
-    text-transform: none;
+    text-transform: none !important;
 }
 
 .service {
