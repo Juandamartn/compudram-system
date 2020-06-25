@@ -64,6 +64,24 @@
         </div>
 
         <div class="form__field">
+            <label class="radio__label">Estatus</label>
+
+            <div class="form__radio">
+                <label class="container">Activo
+                    <input type="radio" name="status" value="activo" @if($service->status == 'activo') checked="checked" @endif>
+    
+                    <span class="checkradio"></span>
+                </label>
+    
+                <label class="container">Inactivo
+                    <input type="radio" name="status" value="inactivo" @if($service->status == 'inactivo') checked="checked" @endif>
+                    
+                    <span class="checkradio"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="form__field">
             <label for="charge">Cobro</label>
 
             <input type="text" name="charge" value="{{ old('charge', $service->charge) }}">

@@ -75,6 +75,7 @@ nav,
 .login__form__forgot-pw a,
 .btn,
 .checkmark,
+.checkradio,
 input,
 .home__header a,
 .card__header__title .name,
@@ -241,7 +242,8 @@ main {
 
 /* Custom Check Button */
 /* Hide the browser's default checkbox */
-input[type=checkbox] {
+input[type=checkbox],
+input[type=radio] {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -267,6 +269,47 @@ input[type=checkbox] {
 /* When the checkbox is checked, add a blue background */
 .container input:checked~.checkmark {
     background-color: #2196F3;
+}
+
+/* Custom radio buttons */
+.form__radio {
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+
+.form__radio label {
+    margin-right: 3rem;
+}
+
+.container {
+    position: relative;
+}
+
+.radio__label {
+    margin-bottom: 1rem;
+}
+
+.checkradio {
+    position: absolute;
+    top: 0;
+    right: -2rem;
+    width: 20px;
+    height: 20px;
+    border: 3px solid var(--grayishLight);
+    border-radius: 50%;
+}
+
+.container input:checked~.checkradio {
+    background-color: var(--lightGray);
+    border: 3px solid var(--lightGray);
+}
+
+.container:hover {
+    color: var(--lightGray);
+}
+
+.container:hover span {
+    border: 3px solid var(--lightGray);
 }
 
 /* Message logs */
