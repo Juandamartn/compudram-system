@@ -91,12 +91,13 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
+        
         try {
             $client->delete();
         } catch (QueryException $ex) {
             return back()->with('error', '¡Ha ocurrido un error al eliminar!<br>' . $ex->getMessage());
         }
 
-        return back()->with('status', '¡Cliente eliminado con éxito!');
+        return redirect()->route('clients.index')->with('status', '¡Cliente eliminado con éxito!');
     }
 }
