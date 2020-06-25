@@ -36,13 +36,13 @@
         <div class="form__field">
             <label for="brand_pc">Marca de PC</label>
 
-            <input type="text" name="brand_pc" required value="{{ old('brand_pc') }}">
+            <input type="text" name="brand_pc" value="{{ old('brand_pc') }}">
         </div>
 
         <div class="form__field">
             <label for="accesories">Accesorios incluídos</label>
 
-            <input type="text" name="accesories" required value="{{ old('accesories') }}">
+            <input type="text" name="accesories" value="{{ old('accesories') }}">
         </div>
 
         <div class="form__field">
@@ -60,13 +60,13 @@
         <div class="form__field">
             <label for="delivery_date">Fecha de entrega</label>
 
-            <input type="date" name="delivery_date" required value="{{ old('delivery_date') }}">
+            <input type="date" name="delivery_date" value="{{ old('delivery_date') }}">
         </div>
 
         <div class="form__field">
             <label for="charge">Cobro</label>
 
-            <input type="text" name="charge" required value="{{ old('charge') }}">
+            <input type="text" name="charge" value="{{ old('charge') }}">
         </div>
 
         <div class="form__submit">

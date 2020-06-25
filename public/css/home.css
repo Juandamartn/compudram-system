@@ -360,6 +360,7 @@ h1 {
     padding: 2rem;
     top: 40%;
     left: 40%;
+    min-width: 325px;
     background-color: #191F28;
     color: var(--lightGray);
     border-radius: 5px;
@@ -369,13 +370,35 @@ h1 {
     -o-border-radius: 5px;
 }
 
+.modal__checkout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkout__input {
+    margin-bottom: 1rem;
+}
+
+.checkout__input input {
+    padding-bottom: 0.5rem;
+    background-color: transparent;
+    color: var(--lightGray);
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid var(--grayishPurple);
+}
+
 .modal__pane p {
+    text-align: center;
     margin-bottom: 1rem;
 }
 
 .modal__pane__buttons {
     display: flex;
     justify-content: space-around;
+    width: 100%;
 }
 
 /* Pagination */

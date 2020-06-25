@@ -15,7 +15,10 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $services = Service::orderBy('status', 'asc')->paginate(10);
+        $services = Service::
+            orderBy('status', 'asc')->
+            orderBy('created_at', 'desc')->
+            paginate(10);
 
         return view('services.services', compact('services'));
     }
@@ -76,6 +79,15 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
+        if (!$request->name) {
+            $service->update([
+                'status' => $request->status,
+                'charge' => $request->charge
+            ]);
+
+            return back()->with('status', '¡Servicio cobrado con éxito!');
+        }
+
         $service->update($request->all());
 
         return back()->with('status', '¡Servicio actualizado con éxito!');

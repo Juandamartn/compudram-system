@@ -12,7 +12,7 @@ class Service extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'owner', 'brand_pc', 'description', 'accesories', 'receipt_date', 'delivery_date', 'charge'
+        'name', 'owner', 'brand_pc', 'description', 'accesories', 'receipt_date', 'delivery_date', 'charge', 'status'
     ];
 
     public function getGetReceiptDateAttribute()

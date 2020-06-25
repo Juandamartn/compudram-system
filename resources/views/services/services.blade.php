@@ -44,9 +44,19 @@
 
         <div class="card__header__controls controls__services">
             @if ($service->status == 'activo')
-                <a href="" class=" btn btn-checkout hidden">
-                    <i class="fas fa-money-bill-alt"></i>
-                </a>                
+                <form id="checkout{{ $service->id }}" action="{{ route('services.update', $service) }}" method="post" class="form__checkout">
+                    <input type="hidden" name="status" value="inactivo">
+
+                    <input type="hidden" name="charge" value="{{ $service->charge }}">
+
+                    @csrf
+                    @method('PUT')
+
+                    <button type="submit" class="btn btn-checkout hidden" onclick="confirmCheckout(event, this.dataset.id, this.dataset.charge)"
+                    data-id="{{ $service->id }}" data-charge="{{ $service->charge }}">
+                        <i class="fas fa-money-bill-alt"></i>
+                    </button>                
+                </form>
             @endif
 
             <a href="{{ route('services.edit', $service) }}" class=" btn btn-edit hidden">
@@ -70,12 +80,26 @@
 
     <div class="modal hidden">
         <div class="modal__pane">
-            <p>¿Estas seguro que deseas eliminar?</p>
+            <div class="modal__delete">
+                <p>¿Estas seguro que deseas eliminar?</p>
+    
+                <div class="modal__pane__buttons">
+                    <input type="submit" value="Sí" form="" class="btn btn-primary">
+    
+                    <button class="btn btn-danger" onclick="closeModal()">No</button>
+                </div>
+            </div>
 
-            <div class="modal__pane__buttons">
-                <input type="submit" value="Sí" form="" class="btn btn-primary">
+            <div class="modal__checkout hidden">
+                <p></p>
 
-                <button class="btn btn-danger" onclick="closeModal()">No</button>
+                <div class="checkout__input"></div>
+
+                <div class="modal__pane__buttons">
+                    <input type="submit" value="Sí" form="" class="btn btn-primary">
+    
+                    <button class="btn btn-danger" onclick="closeModal()">No</button>
+                </div>
             </div>
         </div>
     </div>
