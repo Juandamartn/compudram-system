@@ -7,6 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Service::class, function (Faker $faker) {
     $pcs = ['acer', 'hp', 'lenovo', 'dell', 'asus'];
+    $status = ['activo', 'inactivo'];
 
     return [
         'name'              => $faker->sentence(),
@@ -16,6 +17,7 @@ $factory->define(Service::class, function (Faker $faker) {
         'delivery_date'     => $faker->dateTimeBetween($startDate = '1 years', $endDate = '1 years', $timezone = null),
         'description'       => $faker->sentence($nbWords = 10, $variableNbWords = true),
         'accesories'        => $faker->sentence($nbWords = 5, $variableNbWords = true),
-        'charge'            => rand(100, 400)
+        'charge'            => rand(100, 400),
+        'status'            => $faker->randomElement($status)
     ];
 });
