@@ -14,7 +14,9 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $services = Service::paginate(10);
+
+        return view('services.services', compact('services'));
     }
 
     /**
@@ -46,7 +48,9 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
-        //
+        $service = Service::find($service->id);
+
+        return view('services.show', compact('service'));
     }
 
     /**
@@ -57,7 +61,7 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        //
+        return view('services.edit', compact('service'));
     }
 
     /**
@@ -69,7 +73,9 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        //
+        $service->update($request->all());
+
+        return back()->with('status', '¡Servicio actualizado con éxito!');
     }
 
     /**

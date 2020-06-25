@@ -247,7 +247,8 @@ h1 {
 }
 
 .form__field input[name=name],
-.form__field input[name=address] {
+.form__field input[name=address],
+.form__field input[name=brand_pc] {
     text-transform: capitalize;
 }
 
@@ -459,4 +460,21 @@ h1 {
 
 .rfc {
     text-transform: uppercase;
+}
+
+.normal {
+    text-transform: none;
+}
+
+.service {
+    justify-content: center;
+    text-align: center;
+}
+
+.service p {
+    margin-bottom: 1rem;
+}
+
+.profile__owner {
+    color: var(--lightGray);
 }
