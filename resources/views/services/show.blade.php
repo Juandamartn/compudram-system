@@ -31,6 +31,12 @@
 
     <div class="card__show">
         <div class="card__controls">
+            @if ($service->status == 'activo')
+                <a href="" class=" btn btn-checkout">
+                    <i class="fas fa-money-bill-alt"></i>
+                </a>
+            @endif
+
             <a href="{{ route('services.edit', $service) }}" class=" btn btn-edit">
                 <i class="fas fa-edit"></i>
             </a>
@@ -51,6 +57,8 @@
             <p class="profile__owner">Cliente: {{ $service->owner }}</p>
 
             <p class="profile__date">Fecha de entrega: {{ $service->get_delivery_date }}</p>
+
+            <span class="status @if($service->status == 'activo') active-status @else inactive-status @endif ">{{ $service->status }}</span>
         </div>
 
         <div class="card__info">

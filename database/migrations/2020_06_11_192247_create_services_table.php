@@ -23,6 +23,7 @@ class CreateServicesTable extends Migration
             $table->timestamp('receipt_date');
             $table->timestamp('delivery_date')->nullable();
             $table->integer('charge')->nullable();
+            $table->enum('status', ['activo', 'inactivo'])->default('activo');
             $table->timestamps();
         });
     }
