@@ -53,16 +53,25 @@ function confirmCheckout(event, id, charge) {
 
     if (charge == 0) {
         chargeLabel.innerHTML = 'Cobrar';
-        
+
         let chargeInput = document.createElement('INPUT');
         chargeInput.setAttribute('type', 'text');
+        chargeInput.setAttribute('onkeyup', `updateCharge(this.value, ${id})`);
+
         document.querySelector('.modal__checkout .checkout__input').innerHTML = '';
         document.querySelector('.modal__checkout .checkout__input').appendChild(chargeInput);
     } else {
+        document.querySelector('.modal__checkout .checkout__input').innerHTML = '';
         chargeLabel.innerHTML = '¿Cobrar $' + charge + '?'
     }
 
     event.preventDefault();
+}
+
+function updateCharge(charge, id) {
+    let input = document.querySelector(`#input${id}`);
+
+    input.value = charge;
 }
 
 function closeModal() {

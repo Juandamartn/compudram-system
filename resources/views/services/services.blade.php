@@ -47,7 +47,7 @@
                 <form id="checkout{{ $service->id }}" action="{{ route('services.update', $service) }}" method="post" class="form__checkout">
                     <input type="hidden" name="status" value="inactivo">
 
-                    <input type="hidden" name="charge" value="{{ $service->charge }}">
+                    <input type="hidden" name="charge" value="{{ $service->charge }}" id="input{{ $service->id }}">
 
                     @csrf
                     @method('PUT')
