@@ -21,4 +21,18 @@ class License extends Model
     {
         return $this->belongsTo(System::class, 'system_id');
     }
+
+    public function getGetDueDateAttribute()
+    {
+        return date('d/m/Y', strtotime($this->due_date));
+    }
+
+    public function getGetImageAttribute()
+    {
+        $image = $this->system->image;
+
+        if ($image) {
+            return url("storage/$image");
+        }
+    }
 }

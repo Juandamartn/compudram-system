@@ -19,6 +19,7 @@ class CreateLicensesTable extends Migration
             $table->timestamp('due_date');
             $table->text('observations')->nullable();
             $table->string('serial_number')->unique();
+            $table->enum('status', ['activo', 'inactivo'])->default('activo');
             $table->timestamps();
 
             // Foreign keys

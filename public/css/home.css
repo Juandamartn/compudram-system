@@ -128,8 +128,20 @@
     height: 70px;
 }
 
+.licenses {
+    height: 290px;
+}
+
+.licenses .card__image {
+    margin-top: 2rem;
+}
+
 .services:hover {
     height: 115px;
+}
+
+.licenses:hover {
+    height: 335px;
 }
 
 .card:hover .name {
@@ -149,7 +161,8 @@
     justify-content: flex-end;
 }
 
-.controls__services {
+.controls__services,
+.controls__licenses {
     position: absolute;
     bottom: 0.7rem;
     left: center;
@@ -163,6 +176,13 @@
 
 .card__header .date {
     display: inline;
+    color: var(--grayishPurple);
+    font-size: 0.7rem;
+}
+
+.card__header .serial {
+    display: block;
+    width: 100%;
     color: var(--grayishPurple);
     font-size: 0.7rem;
 }

@@ -33,11 +33,13 @@
     <div class="card cursor-pointer licenses">
         <div class="card__header">
             <div class="card__header__title" onclick="window.location.href = '{{ route('licenses.show', $license) }}'">
-                <p class="name">{{ $license->get_name }}...</p>
+                <p class="name">{{ $license->client->name }}</p>
 
-                <p class="name">{{ $license->owner }}</p>
+                <p class="name">{{ $license->system->name }}</p>
 
-                <p class="date">Recibido el {{ $license->get_receipt_date }}</p> <span class="status @if($license->status == 'activo') active-status @else inactive-status @endif status-index">{{ $license->status }}</span>
+                <p class="serial">{{ $license->serial_number }}</p>
+
+                <p class="date">Expira en {{ $license->get_due_date }}</p> <span class="status @if($license->status == 'activo') active-status @else inactive-status @endif status-index">{{ $license->status }}</span>
             </div>
 
         </div>
@@ -72,6 +74,14 @@
                     <i class="fas fa-trash-alt"></i>
                 </button>
             </form>
+        </div>
+
+        <div class="card__image">
+            @if ($license->system->image)
+            <img src="{{ $license->get_image }}" alt="{{ $license->system->name }} image">
+            @else
+            <img src="https://ui-avatars.com/api/?name={{ $license->system->name }}&background=758290&color=4F5B69&size=200" alt="">
+            @endif
         </div>
     </div>
     @endforeach
