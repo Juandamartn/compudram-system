@@ -14,7 +14,9 @@ class LicenseController extends Controller
      */
     public function index()
     {
-        //
+        $licenses = License::paginate(10);
+
+        return view('licenses.licenses', compact('licenses'));
     }
 
     /**

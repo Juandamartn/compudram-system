@@ -26,3 +26,6 @@ Route::resource('clients', 'ClientController')
 
 Route::resource('services', 'ServiceController')
     ->middleware('auth');
+
+Route::resource('licenses', 'LicenseController')
+    ->middleware(('auth'));

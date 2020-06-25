@@ -31,7 +31,7 @@
             {{ __('Servicios') }}
         </a>
 
-        <a href="" @if ($view == 'licences') class="selected" @endif >
+        <a href="{{ route('licenses.index') }}" @if ($view == 'licenses') class="selected" @endif >
             <i class="fas fa-address-card"></i>
 
             {{ __('Licencias') }}
