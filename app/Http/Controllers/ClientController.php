@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Client;
 use App\Http\Requests\ClientRequest;
+use Illuminate\Database\Events\QueryExecuted;
+use Illuminate\Database\QueryException;
 
 class ClientController extends Controller
 {
@@ -64,7 +66,7 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        //
+        return view('clients.edit', compact('client'));
     }
 
     /**
@@ -76,7 +78,9 @@ class ClientController extends Controller
      */
     public function update(ClientRequest $request, Client $client)
     {
-        //
+        $client->update($request->all());
+
+        return back()->with('status', '¡Cliente actualizado con éxito!');
     }
 
     /**
@@ -87,6 +91,12 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
-        //
+        try {
+            $client->delete();
+        } catch (QueryException $ex) {
+            return back()->with('error', '¡Ha ocurrido un error al eliminar!<br>' . $ex->getMessage());
+        }
+
+        return back()->with('status', '¡Cliente eliminado con éxito!');
     }
 }

@@ -30,9 +30,9 @@
     </a>
 
     @foreach ($clients as $client)
-        <div class="card cursor-pointer" onclick="window.location.href = '{{ route('clients.show', $client) }}'">
+        <div class="card cursor-pointer">
             <div class="card__header">
-                <div class="card__header__title">
+                <div class="card__header__title" onclick="window.location.href = '{{ route('clients.show', $client) }}'">
                     <p class="name">{{ $client->name }}</p>
 
                     <p class="date">Alta en {{ $client->get_creation_date }}</p>
@@ -54,7 +54,7 @@
                 </div>
             </div>
 
-            <div class="card__image">
+            <div class="card__image" onclick="window.location.href = '{{ route('clients.show', $client) }}'">
                 <img src="https://ui-avatars.com/api/?name={{ $client->name }}&background=758290&color=4F5B69&size=200" alt="">
             </div>
         </div>

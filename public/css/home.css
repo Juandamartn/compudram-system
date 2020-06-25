@@ -242,6 +242,19 @@ h1 {
     margin-bottom: 1rem;
 }
 
+.form__field input[name=email] {
+    text-transform: lowercase;
+}
+
+.form__field input[name=name],
+.form__field input[name=address] {
+    text-transform: capitalize;
+}
+
+.form__field input[name=rfc] {
+    text-transform: uppercase;
+}
+
 .form__field:hover>label,
 .form__button:hover>p {
     color: var(--lightGray);
