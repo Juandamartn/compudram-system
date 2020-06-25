@@ -91,7 +91,7 @@
                 <div class="menu-container__dropdown">
                     <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}&background=344859&color=E0E4E0" alt="Profile picture">
 
-                    <div class="name hidden">
+                    <div class="name">
                         <p>{{ Auth::user()->name }}</p>
                     </div>
 
@@ -101,7 +101,7 @@
                 <a class="menu-item hidden" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                     <i class="fas fa-sign-out-alt"></i>
-                    {{ __('Logout') }}
+                    {{ __('Cerrar sesión') }}
                 </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

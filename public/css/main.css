@@ -150,16 +150,18 @@ nav {
 }
 
 .menu-container__dropdown .name {
+    opacity: 0;
+    width: 0px;
     font-size: 0.8rem;
     margin-right: 0.5rem;
     color: var(--lightGray);
+    transition-property: width;
+    transition-duration: 0.3s;
 }
 
 .menu-container__dropdown:hover .name {
-    display: block !important;
-    animation-name: slideToLeft;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
+    opacity: 1;
+    width: 125px;
 }
 
 .menu-container__dropdown img {
@@ -180,16 +182,13 @@ nav {
 
 .menu-item {
     align-items: center;
-    width: 100px;
+    width: 170px;
     position: absolute;
     right: 7%;
     bottom: -3rem;
     padding: 1rem;
     background-color: var(--lightBlue);
     color: var(--lightGray);
-    animation-name: growDown;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
     z-index: -1;
 }
 

@@ -1,37 +1,3 @@
-@keyframes growDown {
-    0% {
-        color: transparent;
-        height: 0px;
-        padding: 0 1rem;
-    }
-
-    50% {
-        color: transparent;
-    }
-
-    100% {
-        color: var(--lightGray);
-        padding: auto;
-        height: auto;
-    }
-}
-
-@keyframes slideToLeft {
-    0% {
-        opacity: 0;
-        width: 0px;
-    }
-
-    85% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-        width: 125px;
-    }
-}
-
 @keyframes resize {
     0% {
         transform: scale(0);
