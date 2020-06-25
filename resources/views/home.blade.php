@@ -25,7 +25,7 @@
             {{ __('Clientes') }}
         </a>
 
-        <a href="" @if ($view == 'services') class="selected" @endif >
+        <a href="{{ route('services.index') }}" @if ($view == 'services') class="selected" @endif >
             <i class="fas fa-tools"></i>
 
             {{ __('Servicios') }}

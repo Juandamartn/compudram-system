@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 
 $factory->define(Client::class, function (Faker $faker) {
-    $phoneNumber = rand(0, 9999999999);
+    $phoneNumber = rand(6270000000, 6279999999);
 
     return [
         'name'      => $faker->name(),

@@ -16,12 +16,14 @@ class CreateServicesTable extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('brand_pc');
+            $table->string('owner');
+            $table->string('brand_pc')->nullable();
             $table->text('description');
             $table->text('accesories')->nullable();
             $table->timestamp('receipt_date');
-            $table->timestamp('delivery_date');
-            $table->integer('charge');
+            $table->timestamp('delivery_date')->nullable();
+            $table->integer('charge')->nullable();
+            $table->enum('status', ['activo', 'inactivo'])->default('activo');
             $table->timestamps();
         });
     }

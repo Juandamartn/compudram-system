@@ -23,3 +23,6 @@ Route::resource('systems', 'SystemController')
 
 Route::resource('clients', 'ClientController')
     ->middleware('auth');
+
+Route::resource('services', 'ServiceController')
+    ->middleware('auth');
