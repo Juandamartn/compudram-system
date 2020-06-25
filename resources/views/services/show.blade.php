@@ -33,7 +33,7 @@
         <div class="card__controls">
             @if ($service->status == 'activo')
                 <a href="" class=" btn btn-checkout">
-                    <i class="fas fa-money-bill-alt"></i>
+                    <i class="fas fa-dollar-sign"></i>
                 </a>
             @endif
 

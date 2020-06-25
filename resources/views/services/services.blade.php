@@ -54,7 +54,7 @@
 
                     <button type="submit" class="btn btn-checkout hidden" onclick="confirmCheckout(event, this.dataset.id, this.dataset.charge)"
                     data-id="{{ $service->id }}" data-charge="{{ $service->charge }}">
-                        <i class="fas fa-money-bill-alt"></i>
+                        <i class="fas fa-dollar-sign"></i>
                     </button>                
                 </form>
             @endif
