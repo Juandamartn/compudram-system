@@ -49,4 +49,14 @@ class License extends Model
             return url("storage/$image");
         }
     }
+
+    public function getGetActivationDateOtherAttribute()
+    {
+        return date('Y-m-d', strtotime($this->activation_date));
+    }
+
+    public function getGetDueDateOtherAttribute()
+    {
+        return date('Y-m-d', strtotime($this->due_date));
+    }
 }

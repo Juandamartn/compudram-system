@@ -6,6 +6,7 @@ use App\Client;
 use App\License;
 use App\System;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 
 class LicenseController extends Controller
 {
@@ -47,7 +48,7 @@ class LicenseController extends Controller
     {
         License::create($request->all());
 
-        return back()->with('status', 'Licencia creada con éxito!');
+        return back()->with('status', '!Licencia creada con éxito!');
     }
 
     /**
@@ -71,7 +72,10 @@ class LicenseController extends Controller
      */
     public function edit(License $license)
     {
-        //
+        $clients = Client::latest()->get();
+        $systems = System::latest()->get();
+
+        return view('licenses.edit', compact('license', 'clients', 'systems'));
     }
 
     /**
@@ -83,7 +87,9 @@ class LicenseController extends Controller
      */
     public function update(Request $request, License $license)
     {
-        //
+        $license->update($request->all());
+
+        return back()->with('status', '¡Licencia actualizada con éxito!');
     }
 
     /**
@@ -94,6 +100,12 @@ class LicenseController extends Controller
      */
     public function destroy(License $license)
     {
-        //
+        try {
+            $license->delete();
+        } catch (QueryException $ex) {
+            return back()->with('error', '¡Ha ocurrido un error al eliminar!<br>' . $ex->getMessage());
+        }
+
+        return redirect()->route('licenses.index')->with('status', '!Licencia eliminada con éxito!');
     }
 }
