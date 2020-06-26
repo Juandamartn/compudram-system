@@ -508,10 +508,16 @@ h1 {
 .card__profile img {
     width: 50%;
     min-width: 200px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
 }
 
 .license img {
     align-self: center;
+    margin-bottom: 1rem;
 }
 
 .card__info {

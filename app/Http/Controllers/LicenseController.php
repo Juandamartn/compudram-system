@@ -20,7 +20,7 @@ class LicenseController extends Controller
         $licenses = License::orderBy('status', 'asc')->orderBy('created_at', 'desc')->paginate(10);
 
         date_default_timezone_set('America/Chihuahua');
-        $todayDate = strtotime(date("d-m-Y H:i:00",time()));
+        $todayDate = strtotime(date("d-m-Y H:i:00", time()));
 
         return view('licenses.licenses', compact('licenses', 'todayDate'));
     }
@@ -62,7 +62,7 @@ class LicenseController extends Controller
         $license = License::find($license->id);
 
         date_default_timezone_set('America/Chihuahua');
-        $todayDate = strtotime(date("d-m-Y H:i:00",time()));
+        $todayDate = strtotime(date("d-m-Y H:i:00", time()));
 
         return view('licenses.show', compact('license', 'todayDate'));
     }

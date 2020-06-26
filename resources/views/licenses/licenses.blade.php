@@ -39,12 +39,8 @@
 
                 <p class="serial">{{ $license->serial_number }}</p>
 
-                <p class="date">Expira el {{ $license->get_due_date }}</p> <span class="status @if($todayDate >= strtotime($license->due_date)) expired-status @elseif($license->status == 'inactivo') inactive-status @elseif($license->status == 'activo') active-status @endif status-index">
-                    @if($todayDate >= strtotime($license->due_date))
-                        expirado
-                    @else
-                        {{ $license->status }}
-                    @endif
+                <p class="date">Expira el {{ $license->get_due_date }}</p> <span class="status @if($license->status == 'expirado') expired-status @elseif($license->status == 'inactivo') inactive-status @elseif($license->status == 'activo') active-status @endif status-index">
+                    {{ $license->status }}
                 </span>
             </div>
 

@@ -72,12 +72,8 @@
                 <img src="https://ui-avatars.com/api/?name={{ $license->system->name }}&background=758290&color=4F5B69&size=200" alt="{{ $license->system->name }} image">
             @endif
 
-            <span class="status @if($todayDate >= strtotime($license->due_date)) expired-status @elseif($license->status == 'inactivo') inactive-status @elseif($license->status == 'activo') active-status @endif ">
-                @if($todayDate >= strtotime($license->due_date))
-                    expirado
-                @else
-                    {{ $license->status }}
-                @endif
+            <span class="status @if($license->status == 'expirado') expired-status @elseif($license->status == 'inactivo') inactive-status @elseif($license->status == 'activo') active-status @endif ">
+                {{ $license->status }}
             </span>
         </div>
 
