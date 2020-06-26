@@ -275,7 +275,9 @@ h1 {
     margin-bottom: 1rem;
 }
 
-.form__field input {
+.form__field input,
+.form__field textarea,
+.form__field select {
     width: 100%;
     padding: 1rem;
     font-size: 1rem;
@@ -286,6 +288,10 @@ h1 {
     margin-bottom: 1rem;
 }
 
+.form__field select option {
+    background-color: var(--darkBlue);
+}
+
 .form__field input[name=email] {
     text-transform: lowercase;
 }
@@ -293,7 +299,8 @@ h1 {
 .form__field input[name=name],
 .form__field input[name=address],
 .form__field input[name=brand_pc],
-.form__field input[name=owner] {
+.form__field input[name=owner],
+.form__field select {
     text-transform: capitalize;
 }
 
@@ -496,6 +503,10 @@ h1 {
     min-width: 200px;
 }
 
+.license img {
+    align-self: center;
+}
+
 .card__info {
     width: 40%;
     min-width: 200px;
@@ -539,7 +550,12 @@ h1 {
     text-align: center;
 }
 
-.service p {
+.license {
+    align-items: flex-start;
+}
+
+.service p,
+.license p {
     margin-bottom: 1rem;
 }
 
@@ -572,4 +588,8 @@ h1 {
 .inactive-status {
     background-color: #c70000;
     color: var(--lightGray);
+}
+
+.license .status {
+    align-self: center;
 }

@@ -4,6 +4,10 @@
 @php ($view = 'licenses')
 
 <div class="content">
+    <a href="{{ route('licenses.index') }}" class="back back-show">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
     <div class="logs">
         @if (session('status'))
         <div class="success log" role="alert">
@@ -25,26 +29,8 @@
         @endif
     </div>
 
-    <a href="{{ route('licenses.create') }}" class="btn btn-new">
-        <i class="fas fa-plus"></i>
-    </a>
-
-    @foreach ($licenses as $license)
-    <div class="card cursor-pointer licenses">
-        <div class="card__header">
-            <div class="card__header__title" onclick="window.location.href = '{{ route('licenses.show', $license) }}'">
-                <p class="name">{{ $license->client->name }}</p>
-
-                <p class="name">{{ $license->system->name }}</p>
-
-                <p class="serial">{{ $license->serial_number }}</p>
-
-                <p class="date">Expira el {{ $license->get_due_date }}</p> <span class="status @if($license->status == 'activo') active-status @else inactive-status @endif status-index">{{ $license->status }}</span>
-            </div>
-
-        </div>
-
-        <div class="card__header__controls controls__licenses">
+    <div class="card__show">
+        <div class="card__controls">
             @if ($license->status == 'activo')
                 <form id="checkout{{ $license->id }}" action="{{ route('licenses.update', $license) }}" method="post" class="form__checkout">
                     <input type="hidden" name="status" value="inactivo">
@@ -54,14 +40,14 @@
                     @csrf
                     @method('PUT')
 
-                    <button type="submit" class="btn btn-checkout hidden" onclick="confirmCheckout(event, this.dataset.id, this.dataset.charge)"
+                    <button type="submit" class="btn btn-checkout" onclick="confirmCheckout(event, this.dataset.id, this.dataset.charge)"
                     data-id="{{ $license->id }}" data-charge="{{ $license->charge }}">
                         <i class="fas fa-power-off"></i>
                     </button>                
                 </form>
             @endif
 
-            <a href="{{ route('licenses.edit', $license) }}" class=" btn btn-edit hidden">
+            <a href="{{ route('licenses.edit', $license) }}" class=" btn btn-edit">
                 <i class="fas fa-edit"></i>
             </a>
 
@@ -69,24 +55,48 @@
                 @csrf
                 @method('DELETE')
 
-                <button type="submit" class="btn btn-delete hidden" onclick="confirmDelete(event, this.dataset.id)"
-                    data-id="{{ $license->id }}">
+                <button type="submit" class="btn btn-delete" onclick="confirmDelete(event, this.dataset.id)" data-id="{{ $license->id }}">
                     <i class="fas fa-trash-alt"></i>
                 </button>
             </form>
         </div>
 
-        <div class="card__image" onclick="window.location.href = '{{ route('licenses.show', $license) }}'">
+        <div class="card__profile license">
+            <p class="profile__name">Cliente: {{ $license->client->name }}</p>
+
+            <p class="profile__owner">Sistema: {{ $license->system->name }}</p>
+
+            <p class="profile__date">Fecha de expiración: {{ $license->get_due_date }}</p>
+
             @if ($license->system->image)
-            <img src="{{ $license->get_image }}" alt="{{ $license->system->name }} image">
+                <img src="{{ $license->system->get_image }}" alt="{{ $license->system->name }} image">
             @else
-            <img src="https://ui-avatars.com/api/?name={{ $license->system->name }}&background=758290&color=4F5B69&size=200" alt="">
+                <img src="https://ui-avatars.com/api/?name={{ $license->system->name }}&background=758290&color=4F5B69&size=200" alt="{{ $license->system->name }} image">
             @endif
+
+            <span class="status @if($license->status == 'activo') active-status @else inactive-status @endif ">{{ $license->status }}</span>
+        </div>
+
+        <div class="card__info">
+            <div class="card__info__field">
+                <p class="info__field__title">Fecha de activación</p>
+
+                <p class="info__field__content">{{ $license->get_activation_date }}</p>
+            </div>
+
+            <div class="card__info__field">
+                <p class="info__field__title">Numero de serie</p>
+
+                <p class="info__field__content normal">{{ $license->serial_number }}</p>
+            </div>
+
+            <div class="card__info__field">
+                <p class="info__field__title">Observaciones</p>
+
+                <p class="info__field__content normal">{{ $license->observations }}</p>
+            </div>
         </div>
     </div>
-    @endforeach
-
-    {{ $licenses->links('vendor.pagination.default') }}
 
     <div class="modal hidden">
         <div class="modal__pane">

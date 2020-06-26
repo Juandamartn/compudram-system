@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Client;
 use App\License;
+use App\System;
 use Illuminate\Http\Request;
 
 class LicenseController extends Controller
@@ -29,7 +31,10 @@ class LicenseController extends Controller
      */
     public function create()
     {
-        //
+        $clients = Client::latest()->get();
+        $systems = System::latest()->get();
+
+        return view('licenses.create', compact('clients', 'systems'));
     }
 
     /**
@@ -40,7 +45,9 @@ class LicenseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        License::create($request->all());
+
+        return back()->with('status', 'Licencia creada con éxito!');
     }
 
     /**
@@ -51,7 +58,9 @@ class LicenseController extends Controller
      */
     public function show(License $license)
     {
-        //
+        $license = License::find($license->id);
+
+        return view('licenses.show', compact('license'));
     }
 
     /**

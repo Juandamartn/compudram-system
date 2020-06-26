@@ -7,6 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class License extends Model
 {
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'client_id', 'system_id', 'serial_number', 'activation_date', 'due_date', 'observations', 'status'
+    ];
+
+    /**
      * The roles that belong to the user.
      */
     public function client()
@@ -25,6 +34,11 @@ class License extends Model
     public function getGetDueDateAttribute()
     {
         return date('d/m/Y', strtotime($this->due_date));
+    }
+
+    public function getGetActivationDateAttribute()
+    {
+        return date('d/m/Y', strtotime($this->activation_date));
     }
 
     public function getGetImageAttribute()
