@@ -60,6 +60,24 @@
         </div>
 
         <div class="form__field">
+            <label class="radio__label">Estatus</label>
+
+            <div class="form__radio">
+                <label class="container">Activo
+                    <input type="radio" name="status" value="activo" @if($license->status == 'activo') checked="checked" @endif>
+
+                    <span class="checkradio"></span>
+                </label>
+
+                <label class="container">Inactivo
+                    <input type="radio" name="status" value="inactivo" @if($license->status == 'inactivo') checked="checked" @endif>
+                    
+                    <span class="checkradio"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="form__field">
             <label for="observations">Observaciones</label>
 
             <textarea name="observations" cols="30" rows="10">{{ old('observations', $license->observations) }}</textarea>

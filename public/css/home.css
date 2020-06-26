@@ -76,7 +76,8 @@
 
 .btn-edit,
 .btn-delete,
-.btn-checkout {
+.btn-checkout,
+.btn-renew {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,6 +87,12 @@
     animation-name: resize;
     animation-duration: 0.3s;
     animation-fill-mode: forwards;
+}
+
+.btn-renew {
+    margin-left: 0.5rem;
+    background-color: var(--green);
+    color: var(--lightGray);
 }
 
 .btn-checkout {
@@ -587,6 +594,11 @@ h1 {
 
 .inactive-status {
     background-color: #c70000;
+    color: var(--lightGray);
+}
+
+.expired-status {
+    background-color: #c78b00;
     color: var(--lightGray);
 }
 

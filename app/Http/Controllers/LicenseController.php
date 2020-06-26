@@ -17,12 +17,12 @@ class LicenseController extends Controller
      */
     public function index()
     {
-        $licenses = License::
-            orderBy('status', 'asc')->
-            orderBy('created_at', 'desc')->
-            paginate(10);
+        $licenses = License::orderBy('status', 'asc')->orderBy('created_at', 'desc')->paginate(10);
 
-        return view('licenses.licenses', compact('licenses'));
+        date_default_timezone_set('America/Chihuahua');
+        $todayDate = strtotime(date("d-m-Y H:i:00",time()));
+
+        return view('licenses.licenses', compact('licenses', 'todayDate'));
     }
 
     /**
@@ -61,7 +61,10 @@ class LicenseController extends Controller
     {
         $license = License::find($license->id);
 
-        return view('licenses.show', compact('license'));
+        date_default_timezone_set('America/Chihuahua');
+        $todayDate = strtotime(date("d-m-Y H:i:00",time()));
+
+        return view('licenses.show', compact('license', 'todayDate'));
     }
 
     /**

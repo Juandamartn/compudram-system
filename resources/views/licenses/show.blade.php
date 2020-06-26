@@ -35,15 +35,13 @@
                 <form id="checkout{{ $license->id }}" action="{{ route('licenses.update', $license) }}" method="post" class="form__checkout">
                     <input type="hidden" name="status" value="inactivo">
 
-                    <input type="hidden" name="charge" value="{{ $license->charge }}" id="input{{ $license->id }}">
-
                     @csrf
                     @method('PUT')
 
-                    <button type="submit" class="btn btn-checkout" onclick="confirmCheckout(event, this.dataset.id, this.dataset.charge)"
-                    data-id="{{ $license->id }}" data-charge="{{ $license->charge }}">
+                    <button type="submit" class="btn btn-checkout" onclick="confirmDeactivation(event, this.dataset.id)"
+                    data-id="{{ $license->id }}">
                         <i class="fas fa-power-off"></i>
-                    </button>                
+                    </button>               
                 </form>
             @endif
 
@@ -74,7 +72,13 @@
                 <img src="https://ui-avatars.com/api/?name={{ $license->system->name }}&background=758290&color=4F5B69&size=200" alt="{{ $license->system->name }} image">
             @endif
 
-            <span class="status @if($license->status == 'activo') active-status @else inactive-status @endif ">{{ $license->status }}</span>
+            <span class="status @if($todayDate >= strtotime($license->due_date)) expired-status @elseif($license->status == 'inactivo') inactive-status @elseif($license->status == 'activo') active-status @endif ">
+                @if($todayDate >= strtotime($license->due_date))
+                    expirado
+                @else
+                    {{ $license->status }}
+                @endif
+            </span>
         </div>
 
         <div class="card__info">
@@ -111,7 +115,7 @@
             </div>
 
             <div class="modal__checkout hidden">
-                <p></p>
+                <p>¿Estás seguro que deseas desactivar la licencia?</p>
 
                 <div class="checkout__input"></div>
 

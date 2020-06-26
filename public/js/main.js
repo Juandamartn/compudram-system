@@ -68,6 +68,21 @@ function confirmCheckout(event, id, charge) {
     event.preventDefault();
 }
 
+function confirmDeactivation(event, id) {
+    let modalPane = document.querySelector('.modal__checkout .modal__pane__buttons input');
+
+    modal.classList.toggle('hidden');
+
+    if (modalCheckout.classList.contains('hidden')) {
+        modalCheckout.classList.toggle('hidden');
+        modalDelete.classList.toggle('hidden');
+    }
+
+    modalPane.setAttribute('form', `checkout${id}`);
+
+    event.preventDefault();
+}
+
 function updateCharge(charge, id) {
     let input = document.querySelector(`#input${id}`);
 
