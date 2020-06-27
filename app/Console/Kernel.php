@@ -25,7 +25,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('license:expire')->dailyAt('00:45');
+        $schedule->command('license:expire')->everyFiveMinutes();
     }
 
     /**
