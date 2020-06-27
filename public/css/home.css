@@ -665,3 +665,10 @@ h1 {
 .license .status {
     align-self: center;
 }
+
+/* Autofill input fields styles */
+input:-webkit-autofill {
+    -webkit-text-fill-color: var(--lightGray);
+    box-shadow: 0 0 0px 1000px var(--darkBlue) inset;
+    -webkit-box-shadow: 0 0 0px 1000px var(--darkBlue) inset;
+}

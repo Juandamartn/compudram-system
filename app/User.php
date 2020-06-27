@@ -36,4 +36,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getGetImageAttribute()
+    {
+        if ($this->image) {
+            return url("storage/$this->image");
+        }
+    }
+
+    public function getGetCreationDateAttribute()
+    {
+        return date('d/m/Y', strtotime($this->created_at));
+    }
 }

@@ -89,7 +89,11 @@
                 </form>
 
                 <div class="menu-container__dropdown">
-                    <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}&background=344859&color=E0E4E0" alt="Profile picture">
+                    @if(Auth::user()->image)
+                        <img src="{{ Auth::user()->get_image }}" alt="Profile picture">
+                    @else
+                        <img src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}&background=344859&color=E0E4E0" alt="Profile picture">
+                    @endif
 
                     <div class="name">
                         <p>{{ Auth::user()->name }}</p>

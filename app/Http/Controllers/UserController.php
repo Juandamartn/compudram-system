@@ -26,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     /**
@@ -37,7 +37,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'role' => $request->role
+        ]);
+
+        if ($request->file('image')) {
+            $user->image = $request->file('image')->store('users', 'public');
+            $user->save();
+        }
+
+        return back()->with('status', '¡Usuario creado con éxito!');
     }
 
     /**

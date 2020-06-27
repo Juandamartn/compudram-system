@@ -35,7 +35,7 @@
             <div class="card__header__title" onclick="window.location.href = '{{ route('users.show', $user) }}'">
                 <p class="name">{{ $user->name }}</p>
 
-                <p class="date">Alta en {{ $user->get_due_date }}</p> <span class="status @if($user->status == 'expirado') expired-status @elseif($user->status == 'inactivo') inactive-status @elseif($user->status == 'activo') active-status @endif status-index">
+                <p class="date">Alta en {{ $user->get_creation_date }}</p> <span class="status @if($user->status == 'expirado') expired-status @elseif($user->status == 'inactivo') inactive-status @elseif($user->status == 'activo') active-status @endif status-index">
                     {{ $user->status }}
                 </span>
             </div>
