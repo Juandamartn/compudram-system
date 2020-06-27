@@ -18,7 +18,7 @@ class SystemController extends Controller
     {
         $systems = System::paginate(10);
 
-        return view('systems', compact('systems'));
+        return view('systems.systems', compact('systems'));
     }
 
     /**
