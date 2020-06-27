@@ -151,12 +151,24 @@
     margin-top: 2rem;
 }
 
+.users {
+    height: 280px;
+}
+
+.users .card__image {
+    margin-top: 1rem;
+}
+
 .services:hover {
     height: 115px;
 }
 
 .licenses:hover {
     height: 335px;
+}
+
+.users:hover {
+    height: 320px;
 }
 
 .card:hover .name {

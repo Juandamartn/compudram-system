@@ -29,4 +29,7 @@ Route::resource('services', 'ServiceController')
     ->middleware('auth');
 
 Route::resource('licenses', 'LicenseController')
-    ->middleware(('auth'));
+    ->middleware('auth');
+
+Route::resource('users', 'UserController')
+    ->middleware('auth');

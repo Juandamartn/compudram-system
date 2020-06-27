@@ -37,7 +37,7 @@
             {{ __('Licencias') }}
         </a>
 
-        <a href="" @if ($view == 'users') class="selected" @endif >
+        <a href="{{ route('users.index') }}" @if ($view == 'users') class="selected" @endif >
             <i class="fas fa-users-cog"></i>
 
             {{ __('Usuarios') }}
