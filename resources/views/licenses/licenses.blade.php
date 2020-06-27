@@ -59,6 +59,22 @@
                         <i class="fas fa-power-off"></i>
                     </button>                
                 </form>
+            @elseif($license->status == 'expirado' || $license->status == 'inactivo')
+                <form id="renovate{{ $license->id }}" action="{{ route('licenses.update', $license) }}" method="post" class="form__renovate">
+                    <input type="hidden" name="status" value="activo">
+
+                    <input type="date" name="activation_date" required value="{{ date('Y-m-d', $todayDate) }}" class="hidden">
+
+                    <input type="date" name="due_date" id="input{{ $license->id }}" required class="hidden">
+
+                    @csrf
+                    @method('PUT')
+
+                    <button type="submit" class="btn btn-renovate hidden" onclick="confirmRenovate(event, this.dataset.id)"
+                    data-id="{{ $license->id }}">
+                        <i class="fas fa-retweet"></i>
+                    </button>                
+                </form>
             @endif
 
             <a href="{{ route('licenses.edit', $license) }}" class=" btn btn-edit hidden">
@@ -103,12 +119,24 @@
             <div class="modal__checkout hidden">
                 <p>¿Estás seguro que deseas desactivar la licencia?</p>
 
-                <div class="checkout__input"></div>
-
                 <div class="modal__pane__buttons">
                     <input type="submit" value="Sí" form="" class="btn btn-primary">
     
                     <button class="btn btn-danger" onclick="closeModal()">No</button>
+                </div>
+            </div>
+
+            <div class="modal__renovate hidden">
+                <p>Renovar licencia</p>
+
+                <div class="renovate__input">
+                    <input type="date" onchange="updateCharge(this.value, this.dataset.id)">
+                </div>
+
+                <div class="modal__pane__buttons">
+                    <input type="submit" value="Aceptar" form="" class="btn btn-primary">
+    
+                    <button class="btn btn-danger" onclick="closeModal()">Cancelar</button>
                 </div>
             </div>
         </div>

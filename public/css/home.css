@@ -77,7 +77,8 @@
 .btn-edit,
 .btn-delete,
 .btn-checkout,
-.btn-renew {
+.btn-renew,
+.btn-renovate {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -98,6 +99,13 @@
 .btn-checkout {
     margin-right: 0.5rem;
     background-color: #c78b00;
+    color: var(--lightGray);
+    font-size: 0.9rem;
+}
+
+.btn-renovate {
+    margin-right: 0.5rem;
+    background-color: var(--green);
     color: var(--lightGray);
     font-size: 0.9rem;
 }
@@ -223,7 +231,8 @@
 
 .card:hover .btn-edit,
 .card:hover .btn-delete,
-.card:hover .btn-checkout {
+.card:hover .btn-checkout,
+.card:hover .btn-renovate {
     display: flex !important;
 }
 
@@ -404,18 +413,21 @@ h1 {
     -o-border-radius: 5px;
 }
 
-.modal__checkout {
+.modal__checkout,
+.modal__renovate {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.checkout__input {
+.checkout__input,
+.renovate__input {
     margin-bottom: 1rem;
 }
 
-.checkout__input input {
+.checkout__input input,
+.renovate__input input {
     padding-bottom: 0.5rem;
     background-color: transparent;
     color: var(--lightGray);

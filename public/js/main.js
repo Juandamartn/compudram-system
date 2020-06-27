@@ -2,7 +2,8 @@ let dropdown = document.querySelector('.menu-container__dropdown'),
     dropdownMenu = document.querySelector('.menu-item'),
     modal = document.querySelector('.modal'),
     modalDelete = document.querySelector('.modal__delete'),
-    modalCheckout = document.querySelector('.modal__checkout');
+    modalCheckout = document.querySelector('.modal__checkout'),
+    modalRenovate = document.querySelector('.modal__renovate');
 
 if (dropdown) {
     dropdown.addEventListener('click', function () {
@@ -29,8 +30,12 @@ function confirmDelete(event, id) {
     modal.classList.toggle('hidden');
 
     if (modalDelete.classList.contains('hidden')) {
-        modalDelete.classList.toggle('hidden');
-        modalCheckout.classList.toggle('hidden');
+        modalDelete.classList.remove('hidden');
+        modalCheckout.classList.add('hidden');
+        modalRenovate.classList.add('hidden');
+    } else {
+        modalCheckout.classList.add('hidden');
+        modalRenovate.classList.add('hidden');
     }
 
     modalPane.setAttribute('form', `delete${id}`);
@@ -45,8 +50,12 @@ function confirmCheckout(event, id, charge) {
     modal.classList.toggle('hidden');
 
     if (modalCheckout.classList.contains('hidden')) {
-        modalCheckout.classList.toggle('hidden');
-        modalDelete.classList.toggle('hidden');
+        modalCheckout.classList.remove('hidden');
+        modalDelete.classList.add('hidden');
+        modalRenovate.classList.add('hidden');
+    } else {
+        modalDelete.classList.add('hidden');
+        modalRenovate.classList.add('hidden');
     }
 
     modalPane.setAttribute('form', `checkout${id}`);
@@ -74,11 +83,35 @@ function confirmDeactivation(event, id) {
     modal.classList.toggle('hidden');
 
     if (modalCheckout.classList.contains('hidden')) {
-        modalCheckout.classList.toggle('hidden');
-        modalDelete.classList.toggle('hidden');
+        modalCheckout.classList.remove('hidden');
+        modalRenovate.classList.add('hidden');
+        modalDelete.classList.add('hidden');
+    } else {
+        modalRenovate.classList.add('hidden');
+        modalDelete.classList.add('hidden');
     }
 
     modalPane.setAttribute('form', `checkout${id}`);
+
+    event.preventDefault();
+}
+
+function confirmRenovate(event, id) {
+    let modalPane = document.querySelector('.modal__renovate .modal__pane__buttons input');
+
+    modal.classList.toggle('hidden');
+
+    if (modalRenovate.classList.contains('hidden')) {
+        modalRenovate.classList.remove('hidden');
+        modalCheckout.classList.add('hidden');
+        modalDelete.classList.add('hidden');
+    } else {
+        modalCheckout.classList.add('hidden');
+        modalDelete.classList.add('hidden');
+    }
+
+    modalPane.setAttribute('form', `renovate${id}`);
+    document.querySelector('.renovate__input input').dataset.id = id;
 
     event.preventDefault();
 }
