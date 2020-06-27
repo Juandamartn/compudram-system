@@ -446,14 +446,15 @@ h1 {
 .nav__pagination ul {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
 }
 
 .nav__pagination ul li {
     list-style: none;
-    margin-right: 1rem;
+    margin-right: 2rem;
     color: var(--grayishPurple);
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .nav__pagination ul li span {
@@ -464,9 +465,38 @@ h1 {
     color: var(--lightGray);
 }
 
+.nav__pagination ul li a,
+.nav__pagination ul li span {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+}
+
 .nav__pagination ul li a i,
 .nav__pagination ul li span i {
     font-size: 0.8rem;
+}
+
+.numbers {
+    font-size: 0.9rem !important;
+    font-weight: 700;
+}
+
+.number-selected {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    background-color: var(--lightGray);
+    color: var(--darkBlue);
+    font-weight: 700;
+    border-radius: 500px;
+    -webkit-border-radius: 500px;
+    -moz-border-radius: 500px;
+    -ms-border-radius: 500px;
+    -o-border-radius: 500px;
 }
 
 /* Cards for "show" views */
