@@ -101,6 +101,8 @@
                     <button class="btn btn-danger" onclick="closeModal()">No</button>
                 </div>
             </div>
+
+            <div class="modal__renovate hidden"></div>
         </div>
     </div>
 </div>

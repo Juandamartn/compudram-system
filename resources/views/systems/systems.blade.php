@@ -68,13 +68,19 @@
 
     <div class="modal hidden">
         <div class="modal__pane">
-            <p>¿Estas seguro que deseas eliminar?</p>
-    
-            <div class="modal__pane__buttons">
-                <input type="submit" value="Sí" form="" class="btn btn-primary">
+            <div class="modal__delete">
+                <p>¿Estas seguro que deseas eliminar?</p>
         
-                <button class="btn btn-danger" onclick="closeModal()">No</button>
+                <div class="modal__pane__buttons">
+                    <input type="submit" value="Sí" form="" class="btn btn-primary">
+            
+                    <button class="btn btn-danger" onclick="closeModal()">No</button>
+                </div>
             </div>
+
+            <div class="modal__checkout hidden"></div>
+
+            <div class="modal__renovate hidden"></div>
         </div>
     </div>
 </div>
