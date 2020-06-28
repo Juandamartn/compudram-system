@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -73,7 +75,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('users.edit', compact('user'));
     }
 
     /**
@@ -85,7 +87,25 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        if (!$request->name) {
+            $user->update([
+                'status' => $request->status
+            ]);
+        } else {
+            $user->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'role' => $request->role
+            ]);
+    
+            if ($request->file('image')) {
+                Storage::disk('public')->delete($user->image);
+                $user->image = $request->file('image')->store('users', 'public');
+                $user->save();
+            }
+        }
+
+        return back()->with('status', '¡Usuario actualizado con éxito!');
     }
 
     /**
@@ -96,6 +116,16 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        try {
+            $user->delete();
+        } catch (QueryException $ex) {
+            return back()->with('error', '¡Ha ocurido un error al eliminar!<br>' . $ex->getMessage());
+        }
+
+        if ($user->image) {
+            Storage::disk('public')->delete($user->image);
+        }
+
+        return redirect()->route('users.index')->with('status', 'Usuario eliminado con éxito!');
     }
 }

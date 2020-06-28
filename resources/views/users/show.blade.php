@@ -112,19 +112,7 @@
                 </div>
             </div>
 
-            <div class="modal__renovate hidden">
-                <p>Renovar licencia</p>
-
-                <div class="renovate__input">
-                    <input type="date" onchange="updateCharge(this.value, this.dataset.id)">
-                </div>
-
-                <div class="modal__pane__buttons">
-                    <input type="submit" value="Aceptar" form="" class="btn btn-primary">
-    
-                    <button class="btn btn-danger" onclick="closeModal()">Cancelar</button>
-                </div>
-            </div>
+            <div class="modal__renovate hidden"></div>
         </div>
     </div>
 </div>
