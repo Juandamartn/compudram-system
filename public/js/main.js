@@ -3,12 +3,20 @@ let dropdown = document.querySelector('.menu-container__dropdown'),
     modal = document.querySelector('.modal'),
     modalDelete = document.querySelector('.modal__delete'),
     modalCheckout = document.querySelector('.modal__checkout'),
-    modalRenovate = document.querySelector('.modal__renovate');
+    modalRenovate = document.querySelector('.modal__renovate'),
+    cardTitle = document.querySelector('.card__content .title'),
+    cardItem = document.querySelector('.card__item');
 
 if (dropdown) {
     dropdown.addEventListener('click', function () {
         dropdownMenu.classList.toggle('hidden');
     });
+}
+
+function displayItem(title) {
+    title.nextSibling.nextSibling.classList.toggle('hidden');
+    title.children[0].classList.toggle('fa-chevron-down');
+    title.children[0].classList.toggle('fa-chevron-up');
 }
 
 function previewImage(input) {
