@@ -102,11 +102,21 @@
                     <i class="fas fa-chevron-down"></i>
                 </div>
 
-                <a class="menu-item hidden" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                    <i class="fas fa-sign-out-alt"></i>
-                    {{ __('Cerrar sesión') }}
-                </a>
+                <div class="menu-item__container hidden">
+                    <a href="{{ route('users.edit', App\User::find(Auth::user()->id)) }}" class="menu-item">
+                        {{ __('Editar datos') }}
+                    </a>
+
+                    <a href="{{ route('password.update') }}" class="menu-item">
+                        {{ __('Cambiar contraseña') }}
+                    </a>
+
+                    <a class="menu-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                        <i class="fas fa-sign-out-alt"></i>
+                        {{ __('Cerrar sesión') }}
+                    </a>
+                </div>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf

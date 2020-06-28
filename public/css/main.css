@@ -181,23 +181,29 @@ nav {
     font-size: 0.8rem;
 }
 
-.menu-item {
+.menu-item__container {
     align-items: center;
     width: 170px;
+    height: fit-content;
     position: absolute;
+    top: 2rem;
     right: 7%;
     bottom: -3rem;
     padding: 1rem;
     background-color: var(--lightBlue);
-    color: var(--lightGray);
     z-index: -1;
+}
+
+.menu-item {
+    color: var(--lightGray);
+    margin-bottom: 1rem;
 }
 
 .menu-item i {
     margin-right: 0.3rem;
 }
 
-.menu-item:hover {
+.menu-item__container:hover {
     background-color: var(--lightBlueHover);
 }
 

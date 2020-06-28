@@ -1,5 +1,5 @@
 let dropdown = document.querySelector('.menu-container__dropdown'),
-    dropdownMenu = document.querySelector('.menu-item'),
+    dropdownMenu = document.querySelector('.menu-item__container'),
     modal = document.querySelector('.modal'),
     modalDelete = document.querySelector('.modal__delete'),
     modalCheckout = document.querySelector('.modal__checkout'),

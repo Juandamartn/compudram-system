@@ -1,5 +1,6 @@
 .home {
     flex-direction: column;
+    z-index: -2;
 }
 
 .home__header {
