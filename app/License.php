@@ -9,6 +9,19 @@ class License extends Model
 {
     use Searchable;
 
+    public function toSearchableArray()
+    {
+        $array = $this->toArray();
+
+        $array = $this->transform($array);
+
+        $array['client_name'] = $this->client->name;
+        $array['system_name'] = $this->system->email;
+
+        return $array;
+    }
+
+
     /**
      * The attributes that are mass assignable.
      *

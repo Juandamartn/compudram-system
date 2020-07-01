@@ -34,3 +34,11 @@ Route::resource('licenses', 'LicenseController')
 
 Route::resource('users', 'UserController')
     ->middleware('auth');
+
+Route::get('search', function () {
+    $query = 'juan'; // <-- Change the query for testing.
+
+    $articles = App\License::search($query)->get();
+
+    return $articles;
+});
