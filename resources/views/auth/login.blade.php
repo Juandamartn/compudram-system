@@ -56,7 +56,7 @@
 
         <div class="login__form__forgot-pw">
             <button type="submit" class="btn btn-primary">
-                {{ __('Login') }}
+                {{ __('Iniciar sesión') }}
             </button>
 
             @if (Route::has('password.request'))
